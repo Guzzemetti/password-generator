@@ -9,8 +9,6 @@ const lowercase=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 
 var possibleChars = []
 
-let userPassword = []
-
 // Assignment Code-------------------------------------------------//
 var generateBtn = document.querySelector("#generate");
 
@@ -27,16 +25,16 @@ generateBtn.addEventListener("click", writePassword);
 
 // This function will generate my password in full
 function generatePassword(){
-  var password = ('')
+  var password = []
   // the parseInt returns the user's input as a Number stored to promptSelections
-var passLength = parseInt(prompt("How many characters, between 8 and 32, do you wish to use?"));
+var passLength = prompt("How many characters, between 8 and 32, do you wish to use?");
   console.log(typeof passLength);
   console.log(passLength);
     if(isNaN(passLength)){
       alert("Please enter a valid integer between 8 and 32.")
       generatePassword();
     }
-
+      // Verifies that the user's input is within the established character limit
     if(passLength < 8 || passLength > 32){
       alert("Please enter a valid integer between 8 and 32.")
       generatePassword();
@@ -67,25 +65,27 @@ else {
     // If promptSelections is confirmed, this adds the lowercase array to possibleChars
   if(promptSelections){    
     possibleChars = possibleChars.concat(lowercase)
-    }
+    // return null;
+  }
+  
   //--------------------------------------------------------
-    else for (let i = 0; i < passLength; i++) {
-      var password = possibleChars[i];
-      
-      var password = (Math.floor(Math.random(passLength * possibleChars)));
+  // Console Logs to verify work as I go
+// console.log(possibleChars);
+// console.log(typeof possibleChars);
+// console.log(passLength);
+// console.log(typeof passLength);
+// console.log();
 
+     for (let i = 0; i < passLength; i++) {
+      password = password.concat(possibleChars[Math.floor(Math.random() * possibleChars.length)]);
+      }
 
     }
-    }
+  
+// Console Logs to verify work as I go   
+// console.log(typeof password);
 
-    
-console.log(password);
+password = password.join("");
 
 return password;
 };
-
-
-
-// Need to look at lines 71 - 85
-// Need a floor loop, does it equal the password? 
-// What do I need to return?
