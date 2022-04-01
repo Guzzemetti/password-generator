@@ -40,7 +40,6 @@ var passLength = prompt("How many characters, between 8 and 32, do you wish to u
       generatePassword();
     }
 else {
-
       //------Below are my prompts asking users for which items they wish to include------//
   //--------------------------------------------------------
   promptSelections = confirm("Would you like to include special characters within your password?")
@@ -67,7 +66,6 @@ else {
     possibleChars = possibleChars.concat(lowercase)
     // return null;
   }
-  
   //--------------------------------------------------------
   // Console Logs to verify work as I go
 // console.log(possibleChars);
@@ -75,17 +73,12 @@ else {
 // console.log(passLength);
 // console.log(typeof passLength);
 // console.log();
-
      for (let i = 0; i < passLength; i++) {
       password = password.concat(possibleChars[Math.floor(Math.random() * possibleChars.length)]);
       }
-
     }
-  
 // Console Logs to verify work as I go   
 // console.log(typeof password);
-
 password = password.join("");
-
 return password;
 };
